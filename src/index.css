@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+:root, [data-theme="blue"] {
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-light: #eff6ff;
+  --color-primary-text: #1d4ed8;
+  --color-primary-border: #bfdbfe;
+  --color-primary-ring: rgba(37, 99, 235, 0.25);
+}
+
+[data-theme="emerald"] {
+  --color-primary: #059669;
+  --color-primary-hover: #047857;
+  --color-primary-light: #ecfdf5;
+  --color-primary-text: #047857;
+  --color-primary-border: #a7f3d0;
+  --color-primary-ring: rgba(5, 150, 105, 0.25);
+}
+
+[data-theme="teal"] {
+  --color-primary: #0d9488;
+  --color-primary-hover: #0f766e;
+  --color-primary-light: #f0fdfa;
+  --color-primary-text: #0f766e;
+  --color-primary-border: #99f6e4;
+  --color-primary-ring: rgba(13, 148, 136, 0.25);
+}
+
+[data-theme="slate"] {
+  --color-primary: #0f172a;
+  --color-primary-hover: #1e293b;
+  --color-primary-light: #f1f5f9;
+  --color-primary-text: #0f172a;
+  --color-primary-border: #cbd5e1;
+  --color-primary-ring: rgba(15, 23, 42, 0.25);
+}
+
+[data-theme="violet"] {
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-primary-light: #f5f3ff;
+  --color-primary-text: #6d28d9;
+  --color-primary-border: #ddd6fe;
+  --color-primary-ring: rgba(124, 58, 237, 0.25);
+}
+
+[data-theme="rose"] {
+  --color-primary: #e11d48;
+  --color-primary-hover: #be123c;
+  --color-primary-light: #fff1f2;
+  --color-primary-text: #be123c;
+  --color-primary-border: #fecdd3;
+  --color-primary-ring: rgba(225, 29, 72, 0.25);
+}
+
+[data-theme="indigo"] {
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-light: #eef2ff;
+  --color-primary-text: #4338ca;
+  --color-primary-border: #c7d2fe;
+  --color-primary-ring: rgba(79, 70, 229, 0.25);
+}
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  *, a, button, span {
+    text-decoration: none !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  a:hover, button:hover {
+    text-decoration: none !important;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+/* Theme utility classes */
+.btn-primary-theme {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.btn-primary-theme:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.text-primary-theme {
+  color: var(--color-primary);
+}
+
+.bg-primary-theme {
+  background-color: var(--color-primary);
+}
+
+.bg-primary-light-theme {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-text);
+  border: 1px solid var(--color-primary-border);
+}
+
+.border-primary-theme {
+  border-color: var(--color-primary);
+}
+
+.hover-text-primary-theme:hover {
+  color: var(--color-primary);
+}
+
+.focus-primary-ring:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-ring);
+}
+
+/* Subtle modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

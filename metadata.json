@@ -1,0 +1,6 @@
+{
+  "name": "NextRole - Modern Job Portal",
+  "description": "Responsive Job Portal built with React and REST API integration. Search, filter, bookmark, and apply for top tech, design, and business jobs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
