@@ -18,6 +18,7 @@ import {
   LogIn,
   LogOut,
   Compass,
+  ChevronDown,
 } from 'lucide-react';
 import { useSavedJobs } from '../../context/SavedJobsContext';
 import { useApplication } from '../../context/ApplicationContext';
@@ -64,10 +65,10 @@ export const Header = memo(() => {
               </Link>
 
               {/* Center: Clean Primary Navigation */}
-              <nav className="hidden lg:flex items-center gap-1 text-xs">
+              <nav className="hidden lg:flex items-center gap-1 text-sm font-medium">
                 <Link
                   to="/"
-                  className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
+                  className={`px-3 py-1.5 rounded-md transition-colors ${
                     isActive('/') && location.pathname === '/'
                       ? 'bg-slate-100 text-slate-950 font-semibold'
                       : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
@@ -78,76 +79,120 @@ export const Header = memo(() => {
 
                 <Link
                   to="/explore"
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md transition-colors ${
                     isActive('/explore')
                       ? 'bg-slate-100 text-slate-950 font-semibold'
                       : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
                   }`}
                 >
-                  <Compass className="w-3.5 h-3.5 text-slate-400" />
+                  <Compass className="w-4 h-4 text-slate-400" />
                   <span>Explore</span>
                 </Link>
 
                 <Link
                   to="/companies"
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md transition-colors ${
                     isActive('/companies')
                       ? 'bg-slate-100 text-slate-950 font-semibold'
                       : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
                   }`}
                 >
-                  <Building className="w-3.5 h-3.5 text-slate-400" />
+                  <Building className="w-4 h-4 text-slate-400" />
                   <span>Companies</span>
                 </Link>
 
                 <Link
                   to="/talent"
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md font-medium transition-colors ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md transition-colors ${
                     isActive('/talent')
                       ? 'bg-slate-100 text-slate-950 font-semibold'
                       : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
                   }`}
                 >
-                  <Users className="w-3.5 h-3.5 text-slate-400" />
-                  <span>Talent CRM</span>
+                  <Users className="w-4 h-4 text-slate-400" />
+                  <span>Talent</span>
                 </Link>
 
                 {(user?.role === 'employer' || user?.role === 'admin') && (
-                  <Link
-                    to="/ats"
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md font-medium transition-colors ${
-                      isActive('/ats')
+                  <div className="relative group">
+                    <button
+                      type="button"
+                      className={`flex items-center gap-1 px-3 py-1.5 rounded-md transition-colors ${
+                        isActive('/ats') || isActive('/post-job')
+                          ? 'bg-slate-100 text-slate-950 font-semibold'
+                          : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                      }`}
+                    >
+                      Hiring
+                      <ChevronDown className="w-3.5 h-3.5 text-slate-400 transition-transform group-hover:rotate-180" />
+                    </button>
+                    <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                      <div className="min-w-[200px] rounded-xl border border-slate-200 bg-white shadow-card p-1.5">
+                        <Link
+                          to="/ats"
+                          className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors ${
+                            isActive('/ats')
+                              ? 'bg-slate-100 text-slate-950 font-semibold'
+                              : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                          }`}
+                        >
+                          <LayoutDashboard className="w-4 h-4 text-slate-400" />
+                          <span>ATS Dashboard</span>
+                        </Link>
+                        <Link
+                          to="/post-job"
+                          className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors ${
+                            isActive('/post-job')
+                              ? 'bg-slate-100 text-slate-950 font-semibold'
+                              : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                          }`}
+                        >
+                          <PlusCircle className="w-4 h-4 text-slate-400" />
+                          <span>Post a Job</span>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                <div className="relative group">
+                  <button
+                    type="button"
+                    className={`flex items-center gap-1 px-3 py-1.5 rounded-md transition-colors ${
+                      isActive('/about') || isActive('/contact')
                         ? 'bg-slate-100 text-slate-950 font-semibold'
                         : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
                     }`}
                   >
-                    <LayoutDashboard className="w-3.5 h-3.5 text-slate-400" />
-                    <span>Hiring ATS</span>
-                  </Link>
-                )}
-
-                <Link
-                  to="/about"
-                  className={`px-3 py-1.5 rounded-md font-medium transition-colors ${
-                    isActive('/about')
-                      ? 'bg-slate-100 text-slate-950 font-semibold'
-                      : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
-                  }`}
-                >
-                  About
-                </Link>
-
-                <Link
-                  to="/contact"
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md font-medium transition-colors ${
-                    isActive('/contact')
-                      ? 'bg-slate-100 text-slate-950 font-semibold'
-                      : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
-                  }`}
-                >
-                  <Mail className="w-3.5 h-3.5 text-slate-400" />
-                  <span>Contact</span>
-                </Link>
+                    Company
+                    <ChevronDown className="w-3.5 h-3.5 text-slate-400 transition-transform group-hover:rotate-180" />
+                  </button>
+                  <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                    <div className="min-w-[200px] rounded-xl border border-slate-200 bg-white shadow-card p-1.5">
+                      <Link
+                        to="/about"
+                        className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors ${
+                          isActive('/about')
+                            ? 'bg-slate-100 text-slate-950 font-semibold'
+                            : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                        }`}
+                      >
+                        <Building className="w-4 h-4 text-slate-400" />
+                        <span>About Lumina</span>
+                      </Link>
+                      <Link
+                        to="/contact"
+                        className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors ${
+                          isActive('/contact')
+                            ? 'bg-slate-100 text-slate-950 font-semibold'
+                            : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                        }`}
+                      >
+                        <Mail className="w-4 h-4 text-slate-400" />
+                        <span>Contact</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </nav>
             </div>
 
