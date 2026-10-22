@@ -29,7 +29,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const STORAGE_KEY = 'lumina_auth_user';
 
 // Predefined administrator accounts
-const ADMIN_EMAILS = ['admin@lumina.careers', 'admin@lumina.com', 'admin@test.com'];
+const ADMIN_EMAILS = ['admin@lumina.careers', 'admin@lumina.com', 'admin@test.com', 'admin@shopsphere.studio'];
 const ADMIN_PASSWORDS = ['admin123', 'admin', 'admin2026', 'secret123'];
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

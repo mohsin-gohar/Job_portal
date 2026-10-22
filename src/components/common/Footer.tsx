@@ -104,7 +104,7 @@ export const Footer = memo(() => {
         {/* Minimalist realistic stats strip */}
         <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 py-6 border-y border-slate-200/80">
           {[
-            { value: '50', label: 'Open Roles' },
+            { value: '50+', label: 'Open Roles' },
             { value: '30', label: 'Verified Companies' },
             { value: '165+', label: 'Active Candidates' },
             { value: '96%', label: 'Salary Parity' },
