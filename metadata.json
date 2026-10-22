@@ -1,0 +1,6 @@
+{
+  "name": "Lumina Jobs — Premium Talent Platform",
+  "description": "A premium job portal connecting ambitious tech talent with extraordinary roles at high-growth software teams.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

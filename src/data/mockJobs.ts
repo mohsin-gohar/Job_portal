@@ -1,0 +1,512 @@
+import { Job } from '../types/job';
+
+export const INITIAL_JOBS: Job[] = [
+  {
+    id: 'job-01',
+    title: 'Senior Frontend Engineer',
+    company: 'Linear Labs',
+    companyInitial: 'L',
+    brandColor: '#5E6AD2',
+    location: 'San Francisco, CA',
+    isRemote: true,
+    type: 'Full-time',
+    category: 'Engineering',
+    experienceLevel: 'Senior Level',
+    salaryMin: 155000,
+    salaryMax: 195000,
+    salaryCurrency: 'USD',
+    postedAt: '2026-10-20T10:00:00.000Z',
+    featured: true,
+    urgent: true,
+    applicantsCount: 38,
+    department: 'Core Product Web',
+    description: 'We are seeking an exceptional Senior Frontend Engineer to build fluid, high-performance web interfaces that engineers and designers love using daily. You will shape our design systems, optimize canvas render pipelines, and architect our offline-first client sync engine.',
+    responsibilities: [
+      'Architect and ship clean, accessible, 60fps React & TypeScript interfaces.',
+      'Collaborate directly with product design to refine micro-interactions, keyboard navigation, and spatial typography.',
+      'Profile memory performance, render pipelines, and network payload sizes across desktop and mobile browsers.',
+      'Lead code reviews, establish testing benchmarks, and mentor junior and mid-level software engineers.'
+    ],
+    requirements: [
+      '5+ years of production experience shipping modern web apps with React and TypeScript.',
+      'Deep understanding of browser rendering lifecycle, web workers, and modern CSS/Tailwind.',
+      'Strong eye for detail, typographic pacing, keyboard shortcuts, and tactile user experience.',
+      'Experience with state management libraries, WebSockets, or client-side caching strategies.'
+    ],
+    skills: ['React', 'TypeScript', 'Tailwind CSS', 'Web Performance', 'GraphQL', 'Vite'],
+    benefits: [
+      'Competitive equity package (top 10% market benchmark)',
+      'Comprehensive health, dental, and vision insurance with 100% premium coverage',
+      '$3,500 annual home office & ergonomics stipend',
+      'Flexible PTO policy with mandatory 4-week minimum annual rest',
+      'Bi-annual company offsites in Lisbon and Tokyo'
+    ],
+    aboutCompany: 'Linear Labs creates high-speed issue tracking and product delivery software trusted by thousands of high-growth engineering teams worldwide.',
+    teamSize: '80–120 employees',
+    website: 'https://linear.app'
+  },
+  {
+    id: 'job-02',
+    title: 'Staff AI Systems Architect',
+    company: 'Anthra Neural',
+    companyInitial: 'A',
+    brandColor: '#D97706',
+    location: 'New York, NY',
+    isRemote: false,
+    type: 'Full-time',
+    category: 'Data & AI',
+    experienceLevel: 'Staff / Lead',
+    salaryMin: 220000,
+    salaryMax: 290000,
+    salaryCurrency: 'USD',
+    postedAt: '2026-10-21T08:30:00.000Z',
+    featured: true,
+    urgent: true,
+    applicantsCount: 64,
+    department: 'Model Serving Infrastructure',
+    description: 'Join Anthra Neural as Staff AI Systems Architect to build ultra-low-latency model inference pipelines, distributed GPU orchestration clusters, and fault-tolerant streaming agent runtimes serving millions of queries per second.',
+    responsibilities: [
+      'Design distributed inference architecture for large language models and multi-modal neural pipelines.',
+      'Optimize vLLM, TensorRT-LLM, and Triton Inference Server clusters across multiple cloud regions.',
+      'Partner with research scientists to bring novel transformer architectures from experimental checkpoints to production scale.',
+      'Establish enterprise telemetry, latency SLAs, and automatic graceful degradation protocols.'
+    ],
+    requirements: [
+      '7+ years architecting distributed backend systems and high-throughput GPU inference clusters.',
+      'Proficiency in Python, C++, CUDA, PyTorch, and distributed KV-cache optimizations.',
+      'Proven track record with Kubernetes, Ray, and high-performance network fabrics (InfiniBand/RoCE).',
+      'BS/MS or equivalent practical expertise in Computer Science or Electrical Engineering.'
+    ],
+    skills: ['Python', 'CUDA', 'Distributed Systems', 'Kubernetes', 'PyTorch', 'vLLM'],
+    benefits: [
+      'Tier-1 equity stake in a venture-backed foundation model startup',
+      'Uncapped paid time off and quarterly wellbeing sabbaticals',
+      'Full family healthcare and fertility benefits',
+      '$5,000 personal learning, research conference, and book budget'
+    ],
+    aboutCompany: 'Anthra Neural builds enterprise-grade foundation models and autonomous reasoning systems focused on verifiable safety and speed.',
+    teamSize: '150–200 employees',
+    website: 'https://anthra.ai'
+  },
+  {
+    id: 'job-03',
+    title: 'Product Designer (Design Systems)',
+    company: 'Veloce Studio',
+    companyInitial: 'V',
+    brandColor: '#0284C7',
+    location: 'London, UK',
+    isRemote: true,
+    type: 'Full-time',
+    category: 'Design',
+    experienceLevel: 'Mid Level',
+    salaryMin: 95000,
+    salaryMax: 125000,
+    salaryCurrency: 'USD',
+    postedAt: '2026-10-20T12:15:00.000Z',
+    featured: false,
+    applicantsCount: 42,
+    department: 'Design Infrastructure',
+    description: 'Veloce is looking for a thoughtful Product Designer specializing in Design Systems. You will craft scalable UI components, design tokens, responsive typography rules, and documentation that accelerate our cross-functional squads across 4 continents.',
+    responsibilities: [
+      'Maintain and evolve our multi-brand Figma library and token architecture in sync with code.',
+      'Conduct accessibility audits (WCAG 2.2 AA) across all component variants and states.',
+      'Work alongside frontend engineers to build pixel-perfect, accessible component primitives.',
+      'Publish clear usage guidelines, spacing formulas, and interaction patterns for designers.'
+    ],
+    requirements: [
+      '3+ years focusing on product design, UI libraries, or design engineering.',
+      'Mastery of Figma components, variables, auto layout, and design token synchronization.',
+      'Basic literacy in CSS/HTML and headless component libraries (Radix, React Aria).',
+      'Strong portfolio showcasing design system documentation and real production design outputs.'
+    ],
+    skills: ['Figma', 'Design Systems', 'WCAG AA', 'Design Tokens', 'Prototyping'],
+    benefits: [
+      'Fully remote setup with co-working space pass (WeWork/Spaces) in any city',
+      'Private health insurance and mental health coaching',
+      '30 days annual holiday plus public holidays',
+      'Latest Apple MacBook Pro + studio display equipment budget'
+    ],
+    aboutCompany: 'Veloce Studio is a boutique product studio collaborating with global fintech and mobility companies to build iconic digital products.',
+    teamSize: '40–60 employees',
+    website: 'https://veloce.design'
+  },
+  {
+    id: 'job-04',
+    title: 'Principal Product Manager',
+    company: 'Stripeflow',
+    companyInitial: 'S',
+    brandColor: '#6366F1',
+    location: 'Seattle, WA',
+    isRemote: true,
+    type: 'Full-time',
+    category: 'Product',
+    experienceLevel: 'Staff / Lead',
+    salaryMin: 190000,
+    salaryMax: 240000,
+    salaryCurrency: 'USD',
+    postedAt: '2026-10-19T16:45:00.000Z',
+    featured: true,
+    applicantsCount: 29,
+    department: 'B2B Payments & Billing',
+    description: 'Lead the next generation of automated treasury workflows and cross-border invoicing pipelines. You will own strategy, technical PRDs, user interviews, and market execution for a product processing over $4B in annualized volume.',
+    responsibilities: [
+      'Define multi-quarter product roadmap for B2B global billing, compliance, and instant settlements.',
+      'Lead discovery calls with finance heads, CFOs, and billing engineers to isolate pain points.',
+      'Synthesize customer signal into rigorous, written specifications with crisp boundary conditions.',
+      'Partner closely with engineering leads to ensure high reliability, latency SLAs, and auditability.'
+    ],
+    requirements: [
+      '6+ years of technical product management experience in fintech, developer tools, or B2B SaaS.',
+      'Exceptional analytical clarity, written communication, and SQL/data querying proficiency.',
+      'Proven history of shipping high-impact products from zero to one and scaling beyond product-market fit.',
+      'Deep empathy for developer experience and financial compliance standards.'
+    ],
+    skills: ['Product Strategy', 'Fintech', 'SQL', 'Roadmapping', 'API Design', 'User Research'],
+    benefits: [
+      'Generous equity and 401(k) matching up to 5%',
+      'Complete platinum health coverage with dependent coverage',
+      'Annual $4,000 personal conference and continuous education fund',
+      'Parental leave: 18 weeks fully paid for all new parents'
+    ],
+    aboutCompany: 'Stripeflow delivers modern liquidity rails and automated billing orchestration for high-volume internet businesses.',
+    teamSize: '250–350 employees',
+    website: 'https://stripeflow.io'
+  },
+  {
+    id: 'job-05',
+    title: 'DevOps & Cloud Infrastructure Engineer',
+    company: 'KubeGrid',
+    companyInitial: 'K',
+    brandColor: '#059669',
+    location: 'Berlin, Germany',
+    isRemote: true,
+    type: 'Full-time',
+    category: 'Engineering',
+    experienceLevel: 'Mid Level',
+    salaryMin: 90000,
+    salaryMax: 115000,
+    salaryCurrency: 'USD',
+    postedAt: '2026-10-21T07:00:00.000Z',
+    featured: false,
+    applicantsCount: 19,
+    department: 'Platform Reliability',
+    description: 'We are expanding our European platform team to harden our multi-region Kubernetes infrastructure, Terraform blueprints, and automated zero-downtime deployment pipelines.',
+    responsibilities: [
+      'Manage multi-tenant Kubernetes clusters across AWS and GCP using GitOps (ArgoCD).',
+      'Maintain Terraform/OpenTofu modules and automated compliance guardrails.',
+      'Implement Prometheus, OpenTelemetry, and Grafana alerting to sustain 99.99% uptime.',
+      'Automate incident response runbooks and conduct blameless post-mortems.'
+    ],
+    requirements: [
+      '3+ years managing production infrastructure on AWS/GCP and Kubernetes.',
+      'Strong hands-on experience with Terraform, Linux kernel tuning, and Docker container security.',
+      'Proficiency in Bash, Python, or Go for automation tooling.',
+      'Strong understanding of networking concepts (DNS, BGP, TLS, Envoy proxies).'
+    ],
+    skills: ['Kubernetes', 'Terraform', 'AWS', 'Docker', 'ArgoCD', 'Prometheus'],
+    benefits: [
+      'Flexible remote work across global timezones',
+      'Co-working space allowance & public transit subsidy',
+      'Company pension contribution and life insurance',
+      '30 vacation days per year'
+    ],
+    aboutCompany: 'KubeGrid provides managed platform engineering foundations for fast-moving European tech scaleups.',
+    teamSize: '70–90 employees',
+    website: 'https://kubegrid.eu'
+  },
+  {
+    id: 'job-06',
+    title: 'Growth Marketing Manager',
+    company: 'HyperScale CRM',
+    companyInitial: 'H',
+    brandColor: '#DC2626',
+    location: 'San Francisco, CA',
+    isRemote: true,
+    type: 'Full-time',
+    category: 'Marketing',
+    experienceLevel: 'Mid Level',
+    salaryMin: 115000,
+    salaryMax: 145000,
+    salaryCurrency: 'USD',
+    postedAt: '2026-10-18T12:00:00.000Z',
+    featured: false,
+    applicantsCount: 22,
+    department: 'Demand Generation',
+    description: 'Drive high-intent inbound acquisition across paid search, product-led SEO loops, technical content, and performance marketing experiments for our developer-first CRM platform.',
+    responsibilities: [
+      'Own CAC and pipeline targets across paid search (Google Ads), LinkedIn, and developer communities.',
+      'Build landing page experiments and conversion rate optimization (CRO) tests.',
+      'Analyze attribution data, cohort retention, and customer lifetime value (LTV).',
+      'Collaborate with product and sales to nurture high-value enterprise leads.'
+    ],
+    requirements: [
+      '3+ years running B2B SaaS growth campaigns with measurable ARR impact.',
+      'Data-driven mindset with mastery of Google Analytics 4, Mixpanel, and HubSpot.',
+      'Experience running A/B tests on conversion funnels and pricing pages.',
+      'Excellent copywriting ability that resonates with technical founders and software buyers.'
+    ],
+    skills: ['Growth Marketing', 'SEO', 'Google Ads', 'A/B Testing', 'Mixpanel', 'HubSpot'],
+    benefits: [
+      'Competitive salary + annual performance bonus structure',
+      'Stock options in Series B high-growth startup',
+      'Comprehensive medical, vision, and dental coverage',
+      'Quarterly team offsites and wellness allowance'
+    ],
+    aboutCompany: 'HyperScale CRM transforms customer interaction data into predictive growth workflows for modern SaaS sales teams.',
+    teamSize: '110–140 employees',
+    website: 'https://hyperscalecrm.com'
+  },
+  {
+    id: 'job-07',
+    title: 'Senior Backend Engineer (Go & Distributed Systems)',
+    company: 'Aether Cloud',
+    companyInitial: 'A',
+    brandColor: '#0D9488',
+    location: 'Singapore',
+    isRemote: true,
+    type: 'Full-time',
+    category: 'Engineering',
+    experienceLevel: 'Senior Level',
+    salaryMin: 145000,
+    salaryMax: 180000,
+    salaryCurrency: 'USD',
+    postedAt: '2026-10-21T04:30:00.000Z',
+    featured: true,
+    urgent: true,
+    applicantsCount: 31,
+    department: 'Core Storage Engine',
+    description: 'Join the Aether Cloud core engine group building an ultra-fast, S3-compatible distributed object storage layer written in Go, optimized for edge caching and streaming media delivery.',
+    responsibilities: [
+      'Implement high-throughput concurrent I/O pipelines and erasure-coding algorithms in Go.',
+      'Reduce p99 read latencies under heavy parallel workloads across distributed SSD clusters.',
+      'Write comprehensive unit, integration, and fuzz tests for critical storage paths.',
+      'Collaborate on open-source protocol RFCs and architectural proposals.'
+    ],
+    requirements: [
+      '5+ years writing production systems in Go (Golang) or Rust.',
+      'Solid foundation in distributed consensus (Raft/Paxos), LSM trees, and POSIX file systems.',
+      'Experience profiling Go routines, memory allocations, and network socket performance.',
+      'Strong problem-solving capability and clear technical documentation habits.'
+    ],
+    skills: ['Go (Golang)', 'Distributed Systems', 'Raft', 'Linux Internals', 'gRPC', 'Docker'],
+    benefits: [
+      'Equity options in one of Asia-Pacific’s fastest-growing cloud storage providers',
+      'Comprehensive private medical coverage including dental and wellness',
+      'Flexible home office budget + latest hardware of choice',
+      'Annual team summit in Bali or Kyoto'
+    ],
+    aboutCompany: 'Aether Cloud delivers edge storage and low-latency asset delivery for next-generation AI and web applications.',
+    teamSize: '90–130 employees',
+    website: 'https://aethercloud.sg'
+  },
+  {
+    id: 'job-08',
+    title: 'Account Executive (Enterprise SaaS)',
+    company: 'DataPulse Corp',
+    companyInitial: 'D',
+    brandColor: '#4F46E5',
+    location: 'New York, NY',
+    isRemote: false,
+    type: 'Full-time',
+    category: 'Sales',
+    experienceLevel: 'Senior Level',
+    salaryMin: 135000,
+    salaryMax: 170000,
+    salaryCurrency: 'USD',
+    postedAt: '2026-10-18T09:20:00.000Z',
+    featured: false,
+    applicantsCount: 14,
+    department: 'Enterprise Revenue',
+    description: 'We are hiring a high-performing Enterprise Account Executive to close $100k+ ACV contracts across Fortune 500 enterprises adopting real-time data streaming and governance software.',
+    responsibilities: [
+      'Manage full-cycle sales from discovery to legal negotiation and closing.',
+      'Build strategic account plans targeting CDOs, VP of Engineering, and Head of Data.',
+      'Consistently achieve or exceed quarterly quota targets ($1.2M annual target).',
+      'Partner with solutions engineers to deliver technical proof-of-concept demos.'
+    ],
+    requirements: [
+      '4+ years of direct B2B quota-carrying sales experience in data infrastructure or enterprise SaaS.',
+      'Consistent track record of quota overachievement (100%+ club).',
+      'Strong command of MEDDPICC sales methodology and enterprise procurement processes.',
+      'Clear, articulate executive communication and relationship-building presence.'
+    ],
+    skills: ['Enterprise Sales', 'MEDDPICC', 'Salesforce', 'Negotiation', 'B2B SaaS'],
+    benefits: [
+      'Uncapped commission plan with 50/50 OTE split ($270k–$340k OTE)',
+      'President’s Club luxury travel incentive for top 15% achievers',
+      'Comprehensive family medical coverage',
+      'Cell phone & client entertainment expense allowance'
+    ],
+    aboutCompany: 'DataPulse provides enterprise observability and data lineage governance for global financial and healthcare institutions.',
+    teamSize: '300–400 employees',
+    website: 'https://datapulse.net'
+  },
+  {
+    id: 'job-09',
+    title: 'Machine Learning Research Engineer',
+    company: 'Synapse Biometrics',
+    companyInitial: 'S',
+    brandColor: '#7C3AED',
+    location: 'Toronto, Canada',
+    isRemote: true,
+    type: 'Full-time',
+    category: 'Data & AI',
+    experienceLevel: 'Senior Level',
+    salaryMin: 150000,
+    salaryMax: 185000,
+    salaryCurrency: 'USD',
+    postedAt: '2026-10-19T11:20:00.000Z',
+    featured: false,
+    applicantsCount: 26,
+    department: 'Computer Vision & Health Signals',
+    description: 'Develop computer vision models and temporal signal analysis algorithms to extract non-invasive physiological metrics from standard camera sensors in real-time.',
+    responsibilities: [
+      'Train lightweight convolutional and transformer models for optical signal decomposition.',
+      'Optimize edge inference models on iOS (CoreML) and Android (NNAPI/TFLite).',
+      'Validate algorithms against clinical ground truth datasets with rigorous statistical power.',
+      'Co-author research publications and file relevant patent applications.'
+    ],
+    requirements: [
+      '4+ years developing and deploying machine learning or computer vision models.',
+      'Master’s or Ph.D. in Computer Science, Biomedical Engineering, or equivalent experience.',
+      'Expertise in PyTorch, OpenCV, NumPy, and model quantization techniques.',
+      'Familiarity with photoplethysmography (PPG) or physiological signal processing is a plus.'
+    ],
+    skills: ['PyTorch', 'Computer Vision', 'Deep Learning', 'CoreML', 'Python', 'Signal Processing'],
+    benefits: [
+      'Extended health benefits + dental + optical',
+      'Generous research conference travel stipend ($5,000/year)',
+      'Flexible work-from-home policy with quarterly co-location weeks',
+      'Equity participation plan'
+    ],
+    aboutCompany: 'Synapse Biometrics creates contactless health sensing technology embedded into telehealth and wellness hardware.',
+    teamSize: '45–60 employees',
+    website: 'https://synapsebio.health'
+  },
+  {
+    id: 'job-10',
+    title: 'Junior Frontend Developer',
+    company: 'Nova UI Labs',
+    companyInitial: 'N',
+    brandColor: '#2563EB',
+    location: 'Austin, TX',
+    isRemote: true,
+    type: 'Full-time',
+    category: 'Engineering',
+    experienceLevel: 'Entry Level',
+    salaryMin: 75000,
+    salaryMax: 95000,
+    salaryCurrency: 'USD',
+    postedAt: '2026-10-21T06:00:00.000Z',
+    featured: false,
+    applicantsCount: 88,
+    department: 'Web Applications',
+    description: 'A stellar opportunity for an ambitious junior developer who loves React, modern JavaScript, and clean responsive CSS. You will receive dedicated 1-on-1 mentorship while shipping client-facing dashboard features.',
+    responsibilities: [
+      'Build reusable UI components in React and Tailwind CSS matching Figma prototypes.',
+      'Integrate REST APIs, handle loading states, and implement client-side form validation.',
+      'Write unit tests using Vitest and React Testing Library.',
+      'Participate in daily standups and engineering code reviews.'
+    ],
+    requirements: [
+      '1+ years of frontend experience (personal projects, open source, or prior internships qualify).',
+      'Strong grasp of JavaScript (ES6+), React Hooks (useState, useEffect), and responsive HTML/CSS.',
+      'Eagerness to learn, ask thoughtful questions, and receive constructive feedback.',
+      'Familiarity with Git branching workflows and REST APIs.'
+    ],
+    skills: ['React', 'JavaScript', 'HTML5 & CSS3', 'Git', 'REST APIs', 'Tailwind CSS'],
+    benefits: [
+      'Structured 6-month engineering mentorship program with senior leads',
+      'Full healthcare, vision, and dental coverage',
+      '$1,500 annual book and course allowance',
+      'Ergonomic desk stipend for remote work'
+    ],
+    aboutCompany: 'Nova UI Labs builds modern developer tools, component frameworks, and design system utilities.',
+    teamSize: '30–45 employees',
+    website: 'https://novaui.io'
+  },
+  {
+    id: 'job-11',
+    title: 'Software Engineering Intern',
+    company: 'Lumina Labs',
+    companyInitial: 'L',
+    brandColor: '#0F172A',
+    location: 'San Francisco, CA',
+    isRemote: true,
+    type: 'Internship',
+    category: 'Engineering',
+    experienceLevel: 'Entry Level',
+    salaryMin: 50000,
+    salaryMax: 65000,
+    salaryCurrency: 'USD',
+    postedAt: '2026-10-21T09:30:00.000Z',
+    featured: true,
+    applicantsCount: 112,
+    department: 'Developer Experience',
+    description: 'Join Lumina Labs for an immersive 12-week software engineering internship. You will work side-by-side with senior engineers, ship real features to production, and master modern full-stack web development.',
+    responsibilities: [
+      'Contribute to production features across our React, TypeScript, and Node.js codebase.',
+      'Write end-to-end and integration tests to maintain high software reliability.',
+      'Participate in architecture design reviews, sprint planning, and team demo days.',
+      'Deliver an end-of-summer capstone project presented to engineering leadership.'
+    ],
+    requirements: [
+      'Currently enrolled in a Computer Science degree or bootcamp graduating in 2027 or 2028.',
+      'Foundational understanding of data structures, algorithms, and web technologies (HTML, CSS, JS/TS).',
+      'Passionate about building intuitive user experiences and clean code.',
+      'Demonstrated curiosity through personal projects, hackathons, or open-source commits.'
+    ],
+    skills: ['JavaScript', 'TypeScript', 'React', 'Git', 'Node.js', 'Problem Solving'],
+    benefits: [
+      'Generous pro-rated monthly stipend + housing/relocation allowance',
+      'Dedicated senior engineer mentor throughout the program',
+      'High conversion rate to full-time engineering offer upon graduation',
+      'Exclusive executive fireside chats and team social events'
+    ],
+    aboutCompany: 'Lumina Labs builds developer productivity tooling and collaborative workspace infrastructure.',
+    teamSize: '200–250 employees',
+    website: 'https://luminalabs.dev'
+  },
+  {
+    id: 'job-12',
+    title: 'Operations & People Experience Lead',
+    company: 'Craftwork Studios',
+    companyInitial: 'C',
+    brandColor: '#CA8A04',
+    location: 'Austin, TX',
+    isRemote: true,
+    type: 'Full-time',
+    category: 'Operations',
+    experienceLevel: 'Mid Level',
+    salaryMin: 90000,
+    salaryMax: 110000,
+    salaryCurrency: 'USD',
+    postedAt: '2026-10-20T09:00:00.000Z',
+    featured: false,
+    applicantsCount: 18,
+    department: 'People Operations',
+    description: 'Create an exceptional remote-first workplace culture. You will direct talent onboarding, global contractor compliance, payroll coordination, benefits administration, and team retreats.',
+    responsibilities: [
+      'Oversee international contractor and employee compliance via Deel / Rippling.',
+      'Orchestrate welcoming, frictionless onboarding experiences for all new team members.',
+      'Plan bi-annual company gatherings, team wellness initiatives, and swag distribution.',
+      'Drive continuous operational process improvements across HR and internal tooling.'
+    ],
+    requirements: [
+      '3+ years in people operations, HR coordination, or business operations in tech.',
+      'Familiarity with remote payroll platforms, global compliance, and HRIS systems.',
+      'Warm interpersonal communication combined with meticulous organizational skills.',
+      'Demonstrated discretion and empathy when handling sensitive personnel matters.'
+    ],
+    skills: ['People Operations', 'HRIS', 'Onboarding', 'Compliance', 'Remote Culture'],
+    benefits: [
+      '100% remote flexibility across North American timezones',
+      'Full health, dental, and life insurance benefits',
+      '$2,000 annual personal vacation experience stipend',
+      'Flexible working hours'
+    ],
+    aboutCompany: 'Craftwork Studios is an independent design and software collective building delightful web apps and digital experiences.',
+    teamSize: '35–50 employees',
+    website: 'https://craftwork.studio'
+  }
+];
