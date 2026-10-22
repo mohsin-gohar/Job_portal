@@ -47,6 +47,7 @@ export const Header = memo(() => {
   return (
     <>
       <header className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-2xs">
+        <div className="h-0.5 bg-gradient-to-r from-indigo-600 via-violet-500 to-indigo-600" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 gap-4">
             {/* Left: Brand Monogram & Wordmark */}
