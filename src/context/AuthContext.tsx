@@ -30,7 +30,7 @@ const STORAGE_KEY = 'lumina_auth_user';
 
 // Predefined administrator accounts
 const ADMIN_EMAILS = ['admin@lumina.careers', 'admin@lumina.com', 'admin@test.com', 'admin@shopsphere.studio'];
-const ADMIN_PASSWORDS = ['admin123', 'admin', 'admin2026', 'secret123'];
+const ADMIN_PASSWORDS = ['admin123', 'admin2026'];
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<AuthUser | null>(null);
@@ -64,7 +64,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     // 1. Check for Admin Login (Secret entry)
-    const isAdminEmail = ADMIN_EMAILS.includes(cleanEmail) || cleanEmail.startsWith('admin@');
+    const isAdminEmail = ADMIN_EMAILS.includes(cleanEmail);
     if (isAdminEmail) {
       if (ADMIN_PASSWORDS.includes(cleanPw)) {
         const adminUser: AuthUser = {
@@ -100,6 +100,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const register = async (name: string, email: string, password: string, role: UserRole): Promise<boolean> => {
     if (!name.trim() || !email.trim() || !password.trim()) return false;
+    if (password.trim().length < 8) return false;
     
     // Regular registration cannot register as admin
     const effectiveRole: UserRole = role === 'employer' ? 'employer' : 'candidate';

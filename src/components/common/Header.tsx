@@ -268,10 +268,14 @@ export const Header = memo(() => {
                       <span>Admin Dashboard</span>
                     </Link>
                   ) : (
-                    <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-900 font-semibold text-xs">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      <span className="max-w-[100px] truncate">{user?.name}</span>
-                    </div>
+                    <Link
+                      to="/dashboard"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-bold text-xs shadow-xs hover:bg-indigo-700 transition-colors"
+                      title="Open Dashboard"
+                    >
+                      <LayoutDashboard className="w-3.5 h-3.5" />
+                      <span>Dashboard</span>
+                    </Link>
                   )}
 
                   <button
@@ -488,6 +492,15 @@ export const Header = memo(() => {
               <span className="text-xs font-mono tabular-nums text-slate-500">
                 {applications.length} submitted
               </span>
+            </Link>
+
+            <Link
+              to="/dashboard"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-md hover:bg-slate-100 text-slate-800"
+            >
+              <LayoutDashboard className="w-4 h-4 text-slate-500" />
+              <span>Dashboard</span>
             </Link>
 
             <div className="pt-2">

@@ -25,7 +25,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, role }
             </div>
             <div>
               <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded-md border border-rose-200/80">
-                403 Forbidden · Restricted Area
+                403 Forbidden - Restricted Area
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-950 mt-3">
                 Administrative Privileges Required
