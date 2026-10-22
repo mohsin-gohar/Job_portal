@@ -63,10 +63,18 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 pb-20">
       {/* Header Banner */}
-      <section className="bg-white border-b border-slate-200/90 pt-16 pb-14 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
+      <section className="relative pt-16 pb-14 px-4 sm:px-6 lg:px-8 border-b border-slate-200/90 overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0 -z-10">
+          <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=80"
+            alt=""
+            className="w-full h-full object-cover object-center opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/85 to-slate-50" />
+        </div>
+        <div className="max-w-4xl mx-auto text-center space-y-4 relative">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-slate-100 border border-slate-200/80 rounded-full text-xs font-semibold text-slate-700 shadow-2xs">
-            <MessageSquare className="w-3.5 h-3.5 text-indigo-600" />
             <span>Connect with Lumina Operations</span>
           </div>
 

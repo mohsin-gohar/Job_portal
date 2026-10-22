@@ -141,6 +141,15 @@ export const HomePage: React.FC = () => {
     <div className="min-h-screen">
       {/* SECTION 1: Master Minimalist Hero */}
       <section className="relative pt-20 pb-20 px-4 sm:px-6 lg:px-8 border-b border-slate-200/90 overflow-hidden bg-white">
+        {/* Background architectural image */}
+        <div className="absolute inset-0 -z-10">
+          <img
+            src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=80"
+            alt=""
+            className="w-full h-full object-cover object-center opacity-10"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white" />
+        </div>
         {/* Architectural grid overlay */}
         <div 
           className="absolute inset-0 -z-10 pointer-events-none opacity-[0.035]"

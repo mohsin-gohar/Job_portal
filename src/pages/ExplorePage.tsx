@@ -83,7 +83,16 @@ export const ExplorePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 pb-20">
       {/* Header Banner */}
-      <section className="bg-white border-b border-slate-200/90 pt-12 pb-10 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-12 pb-10 px-4 sm:px-6 lg:px-8 border-b border-slate-200/90 overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0 -z-10">
+          <img
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80"
+            alt=""
+            className="w-full h-full object-cover object-center opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/85 to-slate-50" />
+        </div>
         <div className="max-w-7xl mx-auto space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-semibold text-slate-700 shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
