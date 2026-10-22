@@ -166,9 +166,9 @@ export const HomePage: React.FC = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="font-semibold text-slate-950">50 Curated Tech Positions</span>
+            <span className="font-semibold text-slate-950">50 Open Roles</span>
             <span aria-hidden="true" className="text-slate-300">·</span>
-            <span>Direct Hiring Manager Access</span>
+            <span>Direct contact with hiring managers</span>
           </div>
 
           {/* Clean Master Headline */}

@@ -47,7 +47,7 @@ export default function App() {
                 <ApplicationProvider>
                   <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-indigo-600 selection:text-white relative">
                     <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-                      <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[450px] w-[900px] rounded-full bg-indigo-500/[0.04] blur-3xl" />
+                      <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[450px] w-[900px] rounded-full bg-slate-900/[0.02] blur-3xl" />
                     </div>
                     <Header />
                     <main className="flex-1">
