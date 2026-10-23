@@ -101,6 +101,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const register = async (name: string, email: string, password: string, role: UserRole): Promise<boolean> => {
     if (!name.trim() || !email.trim() || !password.trim()) return false;
     if (password.trim().length < 8) return false;
+    if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email.trim())) return false;
     
     // Regular registration cannot register as admin
     const effectiveRole: UserRole = role === 'employer' ? 'employer' : 'candidate';

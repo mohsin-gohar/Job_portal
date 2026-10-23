@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, User, ArrowRight, Eye, EyeOff } from 'lucide-react';
 import { useAuth, UserRole } from '../context/AuthContext';
+import { useToast } from '../context/ToastContext';
 
 export const RegisterPage: React.FC = () => {
   const { register } = useAuth();
+  const { showToast } = useToast();
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -17,11 +19,14 @@ export const RegisterPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    if (!name.trim() || !email.trim() || !password.trim()) { setError('All fields are required'); return; }
+    if (!name.trim()) { setError('Please enter your full name.'); return; }
+    if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email.trim())) { setError('Please enter a valid email address.'); return; }
+    if (password.trim().length < 8) { setError('Password must be at least 8 characters long.'); return; }
     setLoading(true);
     const ok = await register(name, email, password, role);
     setLoading(false);
-    if (!ok) { setError('Registration failed'); return; }
+    if (!ok) { setError('Registration failed. Please check your details and try again.'); return; }
+    showToast('Account created successfully', 'success', `Welcome to Lumina, ${name.trim().split(' ')[0]}.`);
     if (role === 'employer') navigate('/ats');
     else navigate('/');
   };
@@ -52,21 +57,21 @@ export const RegisterPage: React.FC = () => {
               <label className="block text-xs font-semibold text-slate-700 mb-1.5">Full name</label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input type="text" value={name} onChange={(e)=>setName(e.target.value)} placeholder="Jane Doe" className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500" />
+                <input type="text" value={name} onChange={(e)=>setName(e.target.value)} placeholder="Jane Doe" required autoComplete="name" className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500" />
               </div>
             </div>
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1.5">Email</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="you@example.com" className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500" />
+                <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="you@example.com" required autoComplete="email" className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500" />
               </div>
             </div>
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1.5">Password</label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input type={showPw?'text':'password'} value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="••••••••" className="w-full pl-10 pr-10 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500" />
+                <input type={showPw?'text':'password'} value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="••••••••" required minLength={8} autoComplete="new-password" className="w-full pl-10 pr-10 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500" />
                 <button type="button" onClick={()=>setShowPw(v=>!v)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700">{showPw?<EyeOff className="w-4 h-4"/>:<Eye className="w-4 h-4"/>}</button>
               </div>
             </div>
