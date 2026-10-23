@@ -59,7 +59,7 @@ export const JobFilters: React.FC<JobFiltersProps> = ({
   return (
     <>
       {/* Mobile filter toggle bar */}
-      <div className="lg:hidden flex items-center justify-between bg-white p-3.5 rounded-xl border border-slate-200 mb-4 shadow-xs">
+      <div className="lg:hidden flex items-center justify-between bg-white p-3.5 rounded-xl border border-slate-200 mb-4 shadow-soft">
         <button
           type="button"
           onClick={() => setMobileOpen(true)}

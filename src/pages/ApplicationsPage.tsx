@@ -39,7 +39,7 @@ export const ApplicationsPage: React.FC = () => {
     <div className="min-h-screen bg-slate-50 text-slate-900 py-10">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Header banner */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-soft">
           <div>
             <div className="flex items-center gap-2">
               <FileText className="w-5 h-5 text-primary-theme" />
@@ -68,7 +68,7 @@ export const ApplicationsPage: React.FC = () => {
 
         {/* Applications list */}
         {applications.length === 0 ? (
-          <div className="bg-white border border-slate-200 rounded-2xl p-16 text-center space-y-4 max-w-xl mx-auto shadow-2xs">
+          <div className="bg-white border border-slate-200 rounded-2xl p-16 text-center space-y-4 max-w-xl mx-auto shadow-soft">
             <div className="w-14 h-14 bg-slate-100 text-slate-400 rounded-2xl flex items-center justify-center mx-auto">
               <FileText className="w-7 h-7" />
             </div>
@@ -91,7 +91,7 @@ export const ApplicationsPage: React.FC = () => {
             {applications.map((app) => (
               <div
                 key={app.id}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-2xs hover:border-slate-300 transition-all space-y-4"
+                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-soft hover:border-slate-300 transition-all space-y-4"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
                   <div>

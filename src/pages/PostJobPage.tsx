@@ -125,7 +125,7 @@ export const PostJobPage: React.FC = () => {
     <div className="min-h-screen bg-slate-50 text-slate-900 py-10">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Banner */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-2xs">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-soft">
           <div className="flex items-center gap-2 text-slate-900">
             <Briefcase className="w-5 h-5 text-primary-theme" />
             <h1 className="text-xl sm:text-2xl font-bold tracking-tight">
@@ -140,7 +140,7 @@ export const PostJobPage: React.FC = () => {
         {/* Form Card */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xs"
+          className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6 shadow-soft"
         >
           {/* Section 1: Role Overview */}
           <div className="space-y-4">

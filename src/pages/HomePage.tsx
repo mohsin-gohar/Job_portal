@@ -72,6 +72,17 @@ export const HomePage: React.FC = () => {
 
       {/* Main catalog layout */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        {/* Section heading */}
+        <div className="mb-8">
+          <span className="section-eyebrow">Curated Opportunities</span>
+          <h2 className="text-2xl sm:text-3xl font-bold font-display text-slate-900 mt-2">
+            Explore open roles
+          </h2>
+          <p className="text-sm text-slate-500 mt-1.5 max-w-2xl">
+            Hand-picked positions from the world&apos;s most respected companies — updated in real time.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
           {/* Left Column: Filters Sidebar */}
           <div className="lg:col-span-1">
@@ -86,7 +97,7 @@ export const HomePage: React.FC = () => {
           {/* Right Column: Job List & Controls */}
           <div className="lg:col-span-3 space-y-5">
             {/* Top Toolbar */}
-            <div className="bg-white border border-slate-200 rounded-xl p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+            <div className="bg-white border border-slate-200 rounded-xl p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-soft">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-semibold text-slate-800">
                   {loading ? (
@@ -133,7 +144,7 @@ export const HomePage: React.FC = () => {
                     onClick={() => setViewMode('grid')}
                     className={`p-1.5 rounded-md transition-colors cursor-pointer ${
                       viewMode === 'grid'
-                        ? 'bg-white text-primary-theme shadow-2xs font-semibold'
+                        ? 'bg-white text-primary-theme shadow-soft font-semibold'
                         : 'text-slate-500 hover:text-slate-900'
                     }`}
                     title="Grid View"
@@ -146,7 +157,7 @@ export const HomePage: React.FC = () => {
                     onClick={() => setViewMode('list')}
                     className={`p-1.5 rounded-md transition-colors cursor-pointer ${
                       viewMode === 'list'
-                        ? 'bg-white text-primary-theme shadow-2xs font-semibold'
+                        ? 'bg-white text-primary-theme shadow-soft font-semibold'
                         : 'text-slate-500 hover:text-slate-900'
                     }`}
                     title="List View"

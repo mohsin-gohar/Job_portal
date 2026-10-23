@@ -115,11 +115,11 @@ export const JobDetailPage: React.FC = () => {
         </div>
 
         {/* Hero Header Card */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-xs">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-soft">
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
             <div className="flex items-start gap-4 sm:gap-5">
               <div
-                className={`w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-xl shrink-0 shadow-sm ${job.companyColor}`}
+                className={`w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-xl shrink-0 shadow-soft ring-1 ring-slate-900/5 ${job.companyColor}`}
               >
                 {job.companyInitials}
               </div>
@@ -199,7 +199,7 @@ export const JobDetailPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => openApplyModal(job)}
-                  className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all shadow-sm cursor-pointer ${
+                  className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all shadow-glow cursor-pointer ${
                     applied
                       ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                       : 'btn-primary-theme'
@@ -217,13 +217,13 @@ export const JobDetailPage: React.FC = () => {
           {/* Main Content Column */}
           <div className="lg:col-span-8 space-y-6">
             {/* Overview */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-3 shadow-xs">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-3 shadow-soft">
               <h2 className="text-base font-bold text-slate-900">Job Description</h2>
               <p className="text-sm text-slate-600 leading-relaxed">{job.description}</p>
             </div>
 
             {/* Responsibilities */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-soft">
               <h2 className="text-base font-bold text-slate-900">Key Responsibilities</h2>
               <ul className="space-y-3">
                 {job.responsibilities.map((resp, idx) => (
@@ -236,7 +236,7 @@ export const JobDetailPage: React.FC = () => {
             </div>
 
             {/* Requirements */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-soft">
               <h2 className="text-base font-bold text-slate-900">Requirements & Qualifications</h2>
               <ul className="space-y-3">
                 {job.requirements.map((req, idx) => (
@@ -249,7 +249,7 @@ export const JobDetailPage: React.FC = () => {
             </div>
 
             {/* Tech Stack & Tags */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-3 shadow-xs">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-3 shadow-soft">
               <h2 className="text-base font-bold text-slate-900">Required Skills & Technologies</h2>
               <div className="flex flex-wrap items-center gap-2 text-xs text-slate-700">
                 {job.tags.map((tag) => (
@@ -264,7 +264,7 @@ export const JobDetailPage: React.FC = () => {
             </div>
 
             {/* Benefits & Perks */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4 shadow-soft">
               <h2 className="text-base font-bold text-slate-900">Benefits & Perks</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {job.benefits.map((benefit, idx) => (
@@ -280,8 +280,13 @@ export const JobDetailPage: React.FC = () => {
             </div>
 
             {/* Bottom Apply Bar */}
-            <div className="bg-slate-900 text-white rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md">
-              <div>
+            <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lift">
+              <div
+                className="absolute -right-16 -top-16 w-56 h-56 aurora"
+                style={{ backgroundColor: 'var(--color-primary)', opacity: 0.18 }}
+                aria-hidden="true"
+              />
+              <div className="relative">
                 <h3 className="text-sm font-bold text-white">Interested in joining {job.company}?</h3>
                 <p className="text-xs text-slate-400 mt-0.5">
                   Applications are reviewed directly by the hiring team.
@@ -290,7 +295,7 @@ export const JobDetailPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => openApplyModal(job)}
-                className="w-full sm:w-auto px-6 py-2.5 btn-primary-theme rounded-xl text-xs font-bold transition-colors shrink-0 cursor-pointer shadow-sm"
+                className="w-full sm:w-auto px-6 py-2.5 btn-primary-theme rounded-xl text-xs font-bold transition-colors shrink-0 cursor-pointer shadow-glow"
               >
                 {applied ? 'View Application' : 'Apply for this Job'}
               </button>
@@ -300,7 +305,7 @@ export const JobDetailPage: React.FC = () => {
           {/* Sidebar Column */}
           <div className="lg:col-span-4 space-y-6">
             {/* Company Profile Card */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-2xs">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-soft">
               <div className="flex items-center gap-3">
                 <div
                   className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm ${job.companyColor}`}
@@ -354,7 +359,7 @@ export const JobDetailPage: React.FC = () => {
             </div>
 
             {/* Hiring Process */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-2xs">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-soft">
               <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                 Interview Process
               </h3>

@@ -33,19 +33,19 @@ export const Navbar: React.FC = () => {
     }`;
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <header className="sticky top-0 z-40 glass-nav">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Zone 1: Brand Wordmark */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl btn-primary-theme flex items-center justify-center font-bold text-base shadow-sm">
+            <div className="w-9 h-9 rounded-xl btn-primary-theme flex items-center justify-center font-bold text-base shadow-glow ring-1 ring-white/30 ring-inset">
               <Briefcase className="w-5 h-5" />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-bold tracking-tight text-slate-900 leading-tight group-hover:text-[var(--color-primary)] transition-colors">
+              <span className="text-lg font-bold font-display tracking-tight text-slate-900 leading-tight group-hover:text-[var(--color-primary)] transition-colors">
                 NextRole
               </span>
-              <span className="text-[10px] text-slate-500 font-medium tracking-wide">
+              <span className="text-[10px] text-slate-500 font-semibold tracking-[0.18em] uppercase">
                 Job Portal & Careers
               </span>
             </div>
@@ -146,7 +146,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => navigate('/post-job')}
-              className="px-4 py-2 text-xs font-semibold text-white btn-primary-theme rounded-lg shadow-sm whitespace-nowrap flex items-center gap-1.5 cursor-pointer"
+              className="px-4 py-2 text-xs font-semibold text-white btn-primary-theme rounded-xl shadow-glow whitespace-nowrap flex items-center gap-1.5 cursor-pointer"
             >
               <PlusCircle className="w-4 h-4" />
               <span>Post a Job</span>

@@ -31,12 +31,12 @@ export const JobCard: React.FC<JobCardProps> = ({ job, viewMode = 'grid' }) => {
 
   if (viewMode === 'list') {
     return (
-      <div className="bg-white border border-slate-200 hover:border-slate-300 rounded-xl p-5 hover:shadow-md transition-all duration-200 group">
+      <div className="card-premium p-5 group">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           {/* Left info */}
           <div className="flex items-start gap-4">
             <div
-              className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 shadow-xs ${job.companyColor}`}
+              className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 shadow-soft ring-1 ring-slate-900/5 ${job.companyColor}`}
             >
               {job.companyInitials}
             </div>
@@ -45,17 +45,17 @@ export const JobCard: React.FC<JobCardProps> = ({ job, viewMode = 'grid' }) => {
               <div className="flex flex-wrap items-center gap-2">
                 <Link
                   to={`/jobs/${job.id}`}
-                  className="text-base font-semibold text-slate-900 hover-text-primary-theme transition-colors"
+                  className="text-base font-semibold font-display text-slate-900 hover-text-primary-theme transition-colors"
                 >
                   {job.title}
                 </Link>
                 {job.featured && (
-                  <span className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-primary-light-theme">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary-light-theme">
                     Featured
                   </span>
                 )}
                 {applied && (
-                  <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded flex items-center gap-1">
+                  <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full flex items-center gap-1">
                     <Check className="w-3 h-3" /> Applied
                   </span>
                 )}
@@ -121,7 +121,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, viewMode = 'grid' }) => {
                 className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
                   applied
                     ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                    : 'btn-primary-theme shadow-xs'
+                    : 'btn-primary-theme shadow-glow'
                 }`}
               >
                 {applied ? 'View Application' : 'Quick Apply'}
@@ -135,13 +135,13 @@ export const JobCard: React.FC<JobCardProps> = ({ job, viewMode = 'grid' }) => {
 
   // Grid view
   return (
-    <div className="bg-white border border-slate-200 hover:border-slate-300 rounded-xl p-5 hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
+    <div className="card-premium p-5 flex flex-col justify-between group">
       <div>
         {/* Header row */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
             <div
-              className={`w-11 h-11 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 shadow-xs ${job.companyColor}`}
+              className={`w-11 h-11 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 shadow-soft ring-1 ring-slate-900/5 ${job.companyColor}`}
             >
               {job.companyInitials}
             </div>
@@ -174,7 +174,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, viewMode = 'grid' }) => {
         <div className="mt-4">
           <Link
             to={`/jobs/${job.id}`}
-            className="text-base font-semibold text-slate-900 hover-text-primary-theme transition-colors line-clamp-2"
+            className="text-base font-semibold font-display text-slate-900 hover-text-primary-theme transition-colors line-clamp-2"
           >
             {job.title}
           </Link>
@@ -226,7 +226,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, viewMode = 'grid' }) => {
             className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
               applied
                 ? 'bg-slate-100 text-slate-700'
-                : 'btn-primary-theme shadow-xs'
+                : 'btn-primary-theme shadow-glow'
             }`}
           >
             {applied ? 'Applied' : 'Apply'}
