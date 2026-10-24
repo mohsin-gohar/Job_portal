@@ -30,8 +30,8 @@ export const Footer = memo(() => {
         { label: 'My Applications', to: '/applications' },
         { label: 'About Lumina', to: '/about' },
         { label: 'Contact Us', to: '/contact' },
-        { label: 'Help Center', to: '/' },
-        { label: 'Privacy Policy', to: '/' },
+        { label: 'Help Center', to: '/contact' },
+        { label: 'Privacy Policy', to: '/about' },
       ],
     },
   ];
@@ -62,15 +62,17 @@ export const Footer = memo(() => {
             </p>
             <div className="flex items-center gap-2 pt-2">
               {[
-                { Icon: Twitter, href: '#', label: 'Twitter' },
-                { Icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { Icon: Github, href: '#', label: 'GitHub' },
-                { Icon: Mail, href: '#', label: 'Email' },
+                { Icon: Twitter, href: 'https://x.com', label: 'Twitter / X' },
+                { Icon: Linkedin, href: 'https://www.linkedin.com', label: 'LinkedIn' },
+                { Icon: Github, href: 'https://github.com', label: 'GitHub' },
+                { Icon: Mail, href: 'mailto:hello@lumina.careers', label: 'Email' },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200/80 border border-slate-200/70 flex items-center justify-center text-slate-600 hover:text-slate-900 transition-colors shadow-2xs"
                 >
                   <Icon className="w-4 h-4" />

@@ -28,12 +28,11 @@ npm run preview
 
 | Role       | Email                          | Password   | Access |
 |------------|--------------------------------|------------|--------|
-| Admin      | `admin@shopsphere.studio`      | `admin123` | Admin Dashboard (`/admin`), ATS Console, Post Job |
-| Admin (alt)| `admin@lumina.careers`         | `admin123` | Same as above |
+| Admin      | `admin@lumina.careers` or `admin@shopsphere.studio` | `admin123` / `admin2026` | Admin Dashboard (`/admin`), ATS Console, Post Job |
 | Employer   | any non-admin email            | any        | Post Job, ATS Console, Talent Sourcing |
 | Candidate  | any non-admin email            | any        | Browse, Save, Apply, Track Applications |
 
-> Any email starting with `admin@` combined with one of `admin123` / `admin` / `admin2026` / `secret123` grants admin access. Registration never offers an admin option.
+> Admin access is granted only to the exact allow-listed emails above with the matching passwords. Registration never offers an admin option.
 
 ## Key Features
 

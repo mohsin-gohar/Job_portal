@@ -135,7 +135,7 @@ export const DashboardPage: React.FC = () => {
                 <div key={stage}>
                   <div className="flex items-center justify-between text-xs mb-1">
                     <span className="font-medium text-slate-700">{stage}</span>
-                    <span className="font-mono tabular-nums text-slate-500">{count} · {pct}%</span>
+                    <span className="font-mono tabular-nums text-slate-500">{count} Â· {pct}%</span>
                   </div>
                   <div className="h-2 rounded-full bg-slate-100 overflow-hidden">
                     <div className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 transition-all" style={{ width: `${pct}%` }} />
@@ -202,7 +202,7 @@ export const DashboardPage: React.FC = () => {
               </div>
               <div className="min-w-0 flex-1">
                 <div className="text-sm font-semibold text-slate-900 truncate group-hover:text-indigo-700">{job.title}</div>
-                <div className="text-xs text-slate-500 truncate">{job.company} · {job.location}</div>
+                <div className="text-xs text-slate-500 truncate">{job.company} Â· {job.location}</div>
               </div>
               <div className="text-right shrink-0">
                 <div className="text-xs font-bold text-indigo-600">{score}% match</div>
@@ -228,7 +228,7 @@ export const DashboardPage: React.FC = () => {
               <li key={app.id} className="py-3 flex items-center justify-between gap-3">
                 <div className="min-w-0">
                   <div className="text-sm font-semibold text-slate-900 truncate">{app.jobTitle}</div>
-                  <div className="text-xs text-slate-500 truncate">{app.company} · {new Date(app.appliedAt).toLocaleDateString()}</div>
+                  <div className="text-xs text-slate-500 truncate">{app.company} Â· {new Date(app.appliedAt).toLocaleDateString()}</div>
                 </div>
                 <span className="shrink-0 px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-semibold">
                   {app.status}

@@ -29,8 +29,26 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const STORAGE_KEY = 'lumina_auth_user';
 
 // Predefined administrator accounts
-const ADMIN_EMAILS = ['admin@lumina.careers', 'admin@lumina.com', 'admin@test.com', 'admin@shopsphere.studio'];
+const ADMIN_EMAILS = ['admin@lumina.careers', 'admin@shopsphere.studio'];
 const ADMIN_PASSWORDS = ['admin123', 'admin2026'];
+
+const VALID_ROLES: UserRole[] = ['candidate', 'employer', 'admin'];
+
+function isAuthUser(value: unknown): value is AuthUser {
+  if (!value || typeof value !== 'object') return false;
+  const candidate = value as Record<string, unknown>;
+  return (
+    typeof candidate.id === 'string' &&
+    candidate.id.length > 0 &&
+    typeof candidate.name === 'string' &&
+    candidate.name.length > 0 &&
+    typeof candidate.email === 'string' &&
+    /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(candidate.email) &&
+    typeof candidate.role === 'string' &&
+    VALID_ROLES.includes(candidate.role as UserRole) &&
+    (candidate.avatarColor === undefined || typeof candidate.avatarColor === 'string')
+  );
+}
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<AuthUser | null>(null);
@@ -39,7 +57,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
-        setUser(JSON.parse(raw));
+        const parsed = JSON.parse(raw);
+        if (isAuthUser(parsed)) {
+          // Never restore an admin session unless the email is still allow-listed.
+          if (parsed.role === 'admin' && !ADMIN_EMAILS.includes(parsed.email)) {
+            localStorage.removeItem(STORAGE_KEY);
+          } else {
+            setUser(parsed);
+          }
+        } else {
+          localStorage.removeItem(STORAGE_KEY);
+        }
       }
     } catch {
       localStorage.removeItem(STORAGE_KEY);

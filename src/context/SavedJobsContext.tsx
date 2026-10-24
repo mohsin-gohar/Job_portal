@@ -20,7 +20,13 @@ export const SavedJobsProvider: React.FC<{ children: ReactNode }> = ({ children 
   const [savedJobIds, setSavedJobIds] = useState<string[]>(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY_SAVED);
-      return stored ? JSON.parse(stored) : ['job-001', 'job-004']; // initial sample saved jobs
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.every((id) => typeof id === 'string')) {
+          return parsed;
+        }
+      }
+      return ['job-001', 'job-004']; // initial sample saved jobs
     } catch {
       return ['job-001', 'job-004'];
     }

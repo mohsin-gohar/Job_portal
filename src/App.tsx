@@ -1,5 +1,5 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React, { Suspense, lazy, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { ToastProvider } from './context/ToastContext';
 import { JobProvider } from './context/JobContext';
 import { SavedJobsProvider } from './context/SavedJobsContext';
@@ -27,6 +27,7 @@ const AdminDashboardPage = lazy(() => import('./pages/AdminDashboardPage').then(
 const DashboardPage = lazy(() => import('./pages/DashboardPage').then((m) => ({ default: m.DashboardPage })));
 const LoginPage = lazy(() => import('./pages/LoginPage').then((m) => ({ default: m.LoginPage })));
 const RegisterPage = lazy(() => import('./pages/RegisterPage').then((m) => ({ default: m.RegisterPage })));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })));
 
 const PageFallback = () => (
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex items-center justify-center">
@@ -36,6 +37,14 @@ const PageFallback = () => (
     </div>
   </div>
 );
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+  }, [pathname]);
+  return null;
+};
 
 export default function App() {
   return (
@@ -47,11 +56,18 @@ export default function App() {
               <SavedJobsProvider>
                 <ApplicationProvider>
                   <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-indigo-600 selection:text-white relative">
+                    <ScrollToTop />
+                    <a
+                      href="#main-content"
+                      className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-slate-950 focus:text-white focus:rounded-lg focus:shadow-lg"
+                    >
+                      Skip to main content
+                    </a>
                     <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
                       <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[450px] w-[900px] rounded-full bg-slate-900/[0.02] blur-3xl" />
                     </div>
                     <Header />
-                    <main className="flex-1">
+                    <main id="main-content" className="flex-1" tabIndex={-1}>
                       <ErrorBoundary>
                         <Suspense fallback={<PageFallback />}>
                           <Routes>
@@ -71,7 +87,7 @@ export default function App() {
                             <Route path="/register" element={<RegisterPage />} />
                             <Route path="/admin" element={<ProtectedRoute role="admin"><AdminDashboardPage /></ProtectedRoute>} />
                             <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-                            <Route path="*" element={<Navigate to="/" replace />} />
+                            <Route path="*" element={<NotFoundPage />} />
                           </Routes>
                         </Suspense>
                       </ErrorBoundary>

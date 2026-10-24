@@ -41,7 +41,13 @@ export const CandidateProvider: React.FC<{ children: ReactNode }> = ({ children 
   const [candidateSkills, setCandidateSkillsState] = useState<string[]>(() => {
     try {
       const stored = localStorage.getItem(STORAGE_SKILLS_KEY);
-      return stored ? JSON.parse(stored) : ['React', 'TypeScript'];
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.every((s) => typeof s === 'string')) {
+          return parsed;
+        }
+      }
+      return ['React', 'TypeScript'];
     } catch {
       return ['React', 'TypeScript'];
     }
@@ -50,7 +56,20 @@ export const CandidateProvider: React.FC<{ children: ReactNode }> = ({ children 
   const [jobAlerts, setJobAlerts] = useState<JobAlert[]>(() => {
     try {
       const stored = localStorage.getItem(STORAGE_ALERTS_KEY);
-      return stored ? JSON.parse(stored) : [];
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed)) {
+          return parsed.filter(
+            (a) =>
+              a &&
+              typeof a === 'object' &&
+              typeof a.id === 'string' &&
+              typeof a.email === 'string' &&
+              typeof a.keywords === 'string'
+          ) as JobAlert[];
+        }
+      }
+      return [];
     } catch {
       return [];
     }

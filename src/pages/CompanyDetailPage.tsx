@@ -171,16 +171,36 @@ export const CompanyDetailPage: React.FC = () => {
           </h2>
         </div>
 
-        <div className="space-y-4">
-          {companyJobs.map((job) => (
-            <JobCard
-              key={job.id}
-              job={job}
-              onApplyClick={(j) => setSelectedJobForApply(j)}
-              onQuickViewClick={(j) => setQuickViewJob(j)}
-            />
-          ))}
-        </div>
+        {companyJobs.length === 0 ? (
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-8 text-center space-y-3 shadow-2xs">
+            <div className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 text-slate-500 mx-auto flex items-center justify-center">
+              <Briefcase className="w-5 h-5 text-slate-400" />
+            </div>
+            <h3 className="font-bold text-slate-900 text-base">No active openings right now</h3>
+            <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
+              {company.name} is not actively recruiting for public roles at this moment, but their team frequently posts new engineering and product positions.
+            </p>
+            <div className="pt-2">
+              <Link
+                to="/explore"
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold rounded-xl shadow-xs transition-colors"
+              >
+                <span>Explore Other Active Roles</span>
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {companyJobs.map((job) => (
+              <JobCard
+                key={job.id}
+                job={job}
+                onApplyClick={(j) => setSelectedJobForApply(j)}
+                onQuickViewClick={(j) => setQuickViewJob(j)}
+              />
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Quick View Drawer */}
